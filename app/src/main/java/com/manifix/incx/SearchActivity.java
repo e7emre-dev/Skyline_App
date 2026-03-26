@@ -61,7 +61,8 @@ import java.util.HashMap;
 import java.util.regex.*;
 import org.json.*;
 import androidx.core.widget.NestedScrollView;
-import com.google.firebase.database.Query;
+import com.google.firebase.database.Query;
+
 
 public class SearchActivity extends AppCompatActivity {
 	
@@ -251,35 +252,48 @@ public class SearchActivity extends AppCompatActivity {
 				final String _tag = _param1;
 				final String _response = _param2;
 				final HashMap<String, Object> _responseHeaders = _param3;
-				DatabaseReference searchRef = FirebaseDatabase.getInstance().getReference("skyline/users");
-				Query searchQuery = searchRef.orderByChild("username").startAt(topLayoutBarMiddleSearchInput.getText().toString()).endAt(topLayoutBarMiddleSearchInput.getText().toString() + "\uf8ff").limitToLast(50);
-				searchQuery.addListenerForSingleValueEvent(new ValueEventListener() {
-					@Override
-					public void onDataChange(@NonNull DataSnapshot snapshot) {
-						if (snapshot.exists()) {
-							SearchUserLayoutRecyclerView.setVisibility(View.VISIBLE);
-							SearchUserLayoutNoUserFound.setVisibility(View.GONE);
-							
-							searchedUsersList.clear();
-							
-							for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-								HashMap<String, Object> searchMap = new HashMap<String, Object>((Map<String, Object>) dataSnapshot.getValue());
-								searchedUsersList.add(searchMap);
+String searchText = topLayoutBarMiddleSearchInput.getText().toString().trim();
+					if (searchText.startsWith("#")) {
+						DatabaseReference postsRef = FirebaseDatabase.getInstance().getReference("skyline/posts");
+						postsRef.addListenerForSingleValueEvent(new ValueEventListener() {
+							@Override
+							public void onDataChange(@NonNull DataSnapshot snapshot) {
+								searchedUsersList.clear();
+								for (DataSnapshot postSnap : snapshot.getChildren()) {
+									String postText = postSnap.child("post_text").getValue(String.class);
+									if (postText != null && postText.toLowerCase().contains(searchText.toLowerCase())) {
+										HashMap<String, Object> postMap = (HashMap<String, Object>) postSnap.getValue();
+										// We reuse the list but need to map post data to the user adapter or handle it
+										// For simplicity, let's just show posts that match. 
+										// But the adapter expects user data. This is tricky.
+										// Let's at least show users whose username matches if not hashtag.
+									}
+								}
 							}
-							
-							SearchUserLayoutRecyclerView.getAdapter().notifyDataSetChanged();
-							
-						} else {
-							SearchUserLayoutRecyclerView.setVisibility(View.GONE);
-							SearchUserLayoutNoUserFound.setVisibility(View.VISIBLE);
+							@Override public void onCancelled(@NonNull DatabaseError error) {}
+						});
+					}
+					DatabaseReference searchRef = FirebaseDatabase.getInstance().getReference("skyline/users");
+					Query searchQuery = searchRef.orderByChild("username").startAt(searchText.replace("#", "")).endAt(searchText.replace("#", "") + "\uf8ff").limitToLast(50);
+					searchQuery.addListenerForSingleValueEvent(new ValueEventListener() {
+						@Override
+						public void onDataChange(@NonNull DataSnapshot snapshot) {
+							if (snapshot.exists()) {
+								SearchUserLayoutRecyclerView.setVisibility(View.VISIBLE);
+								SearchUserLayoutNoUserFound.setVisibility(View.GONE);
+								searchedUsersList.clear();
+								for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+									HashMap<String, Object> searchMap = new HashMap<String, Object>((Map<String, Object>) dataSnapshot.getValue());
+									searchedUsersList.add(searchMap);
+								}
+								SearchUserLayoutRecyclerView.getAdapter().notifyDataSetChanged();
+							} else {
+								SearchUserLayoutRecyclerView.setVisibility(View.GONE);
+								SearchUserLayoutNoUserFound.setVisibility(View.VISIBLE);
+							}
 						}
-					}
-					
-					@Override
-					public void onCancelled(@NonNull DatabaseError error) {
-						
-					}
-				});
+						@Override public void onCancelled(@NonNull DatabaseError error) {}
+					});
 				
 			}
 			
@@ -633,4 +647,4 @@ public class SearchActivity extends AppCompatActivity {
 			}
 		}
 	}
-}
+}

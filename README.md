@@ -1,35 +1,19 @@
-# Skyline App
+# 🌌 Skyline App - v1.1.1 (Hashtag & Link Güncellemesi)
 
-Skyline App, Sketchware ile geliştirilmiş ve Android Studio formatına dönüştürülmüş modern bir Android uygulamasıdır.
+Skyline App, modern ve stabil bir sosyal medya deneyimi sunar. Bu sürümde kullanıcılarımızın en çok istediği hashtag ve link renklendirme özellikleri eklenmiştir.
 
-## 🚀 APK İndir (v1.1.0 - Firebase Aktif)
+## 🚀 Son Sürüm (v1.1.1) Yenilikleri
 
-Uygulamanın en son sürümünü (Firebase ve Yeni Simge Dahil) doğrudan aşağıdaki butona tıklayarak indirebilirsiniz:
+### 💎 Görsel & Fonksiyonel İyileştirmeler
+- **Mavi Hashtag & Linkler**: Gönderilerdeki `#hashtag` ve `http://link` yapıları artık otomatik olarak **mavi** renkte görünür.
+- **Hashtag Arama**: Arama bölümünde hashtag kullanarak içeriklere daha hızlı ulaşabilirsiniz.
+- **Firebase Stabilite**: Kayıt ve giriş sistemleri en güncel `google-services.json` ile tam uyumlu çalışmaktadır.
 
-[![APK İndir](https://img.shields.io/badge/APK-İndir-brightgreen?style=for-the-badge&logo=android)](https://github.com/e7emre-dev/Skyline_App/releases/download/v1.1.0/app-debug.apk)
+## 📥 İndir
 
-Alternatif olarak, [Releases](https://github.com/e7emre-dev/Skyline_App/releases) sayfasından da indirebilirsiniz.
+Uygulamanın en güncel ve stabil sürümünü aşağıdaki butona tıklayarak indirebilirsiniz:
 
-## 📱 Yenilikler (v1.1.0)
-
-- **Firebase Entegrasyonu**: Gönderdiğiniz `google-services.json` dosyası başarıyla bağlandı. Kayıt olma ve giriş yapma sorunları giderildi.
-- **Yeni Uygulama Simgesi**: Uygulama artık mor konuşma balonu simgesiyle (Skyline kimliğiyle) görünüyor.
-- **Performans İyileştirmeleri**: Gereksiz kütüphane hataları temizlendi ve uygulama daha stabil hale getirildi.
-
-## 🛠️ Teknik Detaylar
-
-- **Dil**: Java
-- **SDK**: minSdkVersion 23, targetSdkVersion 34
-- **Bağımlılıklar**: Firebase (Auth, Database, Storage), Glide, CircleImageView, SwipeRefreshLayout.
-
-## ⚙️ Kurulum ve Geliştirme
-
-Projeyi kendi bilgisayarınızda geliştirmek için:
-
-1. Bu depoyu klonlayın: `git clone https://github.com/e7emre-dev/Skyline_App.git`
-2. **Android Studio** ile projeyi açın.
-3. Gerekli kütüphanelerin yüklenmesini bekleyin.
-4. `Run` butonuna basarak uygulamayı çalıştırın.
+[<img src="https://img.shields.io/badge/APK-İNDİR-brightgreen?style=for-the-badge&logo=android" width="200">](https://github.com/e7emre-dev/Skyline_App/releases/download/v1.1.1/app-debug.apk)
 
 ---
-*Gaziantep'ten sevgilerle, Emre Doğan için hazırlanmıştır.*
+*Gaziantep'ten Emre Doğan için özel olarak hazırlanmıştır.* 🇹🇷

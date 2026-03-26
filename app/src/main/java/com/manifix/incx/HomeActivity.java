@@ -81,7 +81,8 @@ import com.google.android.material.appbar.AppBarLayout;
 import android.os.Handler;
 import android.os.Looper;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.Executors;
+
 
 public class HomeActivity extends AppCompatActivity {
 	
@@ -1185,6 +1186,9 @@ class c {
 			if (_data.get((int)_position).get("post_type").toString().equals("TEXT") || (_data.get((int)_position).get("post_type").toString().equals("IMAGE") || _data.get((int)_position).get("post_type").toString().equals("VIDEO"))) {
 				if (_data.get((int)_position).containsKey("post_text")) {
 					postMessageTextMiddle.setText(_data.get((int)_position).get("post_text").toString());
+						postMessageTextMiddle.setAutoLinkMask(android.text.util.Linkify.WEB_URLS);
+						postMessageTextMiddle.setLinkTextColor(Color.BLUE);
+						android.text.util.Linkify.addLinks(postMessageTextMiddle, java.util.regex.Pattern.compile("#(\\w+)"), "skyline://hashtag/");
 					postMessageTextMiddle.setVisibility(View.VISIBLE);
 				} else {
 					postMessageTextMiddle.setVisibility(View.GONE);
@@ -1600,6 +1604,9 @@ class c {
 			if (_data.get((int)_position).get("post_type").toString().equals("TEXT") || (_data.get((int)_position).get("post_type").toString().equals("IMAGE") || _data.get((int)_position).get("post_type").toString().equals("VIDEO"))) {
 				if (_data.get((int)_position).containsKey("post_text")) {
 					postMessageTextMiddle.setText(_data.get((int)_position).get("post_text").toString());
+						postMessageTextMiddle.setAutoLinkMask(android.text.util.Linkify.WEB_URLS);
+						postMessageTextMiddle.setLinkTextColor(Color.BLUE);
+						android.text.util.Linkify.addLinks(postMessageTextMiddle, java.util.regex.Pattern.compile("#(\\w+)"), "skyline://hashtag/");
 					postMessageTextMiddle.setVisibility(View.VISIBLE);
 				} else {
 					postMessageTextMiddle.setVisibility(View.GONE);
@@ -2015,6 +2022,9 @@ class c {
 			if (_data.get((int)_position).get("post_type").toString().equals("TEXT") || (_data.get((int)_position).get("post_type").toString().equals("IMAGE") || _data.get((int)_position).get("post_type").toString().equals("VIDEO"))) {
 				if (_data.get((int)_position).containsKey("post_text")) {
 					postMessageTextMiddle.setText(_data.get((int)_position).get("post_text").toString());
+						postMessageTextMiddle.setAutoLinkMask(android.text.util.Linkify.WEB_URLS);
+						postMessageTextMiddle.setLinkTextColor(Color.BLUE);
+						android.text.util.Linkify.addLinks(postMessageTextMiddle, java.util.regex.Pattern.compile("#(\\w+)"), "skyline://hashtag/");
 					postMessageTextMiddle.setVisibility(View.VISIBLE);
 				} else {
 					postMessageTextMiddle.setVisibility(View.GONE);
@@ -2431,6 +2441,9 @@ class c {
 			if (_data.get((int)_position).get("post_type").toString().equals("TEXT") || (_data.get((int)_position).get("post_type").toString().equals("IMAGE") || _data.get((int)_position).get("post_type").toString().equals("VIDEO"))) {
 				if (_data.get((int)_position).containsKey("post_text")) {
 					postMessageTextMiddle.setText(_data.get((int)_position).get("post_text").toString());
+						postMessageTextMiddle.setAutoLinkMask(android.text.util.Linkify.WEB_URLS);
+						postMessageTextMiddle.setLinkTextColor(Color.BLUE);
+						android.text.util.Linkify.addLinks(postMessageTextMiddle, java.util.regex.Pattern.compile("#(\\w+)"), "skyline://hashtag/");
 					postMessageTextMiddle.setVisibility(View.VISIBLE);
 				} else {
 					postMessageTextMiddle.setVisibility(View.GONE);
@@ -2783,4 +2796,4 @@ class c {
 			}
 		}
 	}
-}
+}
