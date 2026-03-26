@@ -63,7 +63,7 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.shobhitpuri.custombuttons.*;
- // import com.theartofdev.edmodo.cropper.View;
+import com.theartofdev.edmodo.cropper.CropImageView;
 import com.theophrast.ui.widget.*;
 import java.io.*;
 import java.io.File;
@@ -74,7 +74,8 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.regex.*;
 import org.json.*;
-import androidx.appcompat.widget.SwitchCompat;
+import androidx.appcompat.widget.SwitchCompat;
+
 
 public class CreateImagePostNextStepActivity extends AppCompatActivity {
 	
@@ -716,7 +717,8 @@ public class CreateImagePostNextStepActivity extends AppCompatActivity {
 	public void onBackPressed() {
 		finish();
 	}
-	
+	
+
 	public void _setStatusBarColor(final boolean _isLight, final int _stateColor, final int _navigationColor) {
 		if (_isLight) {
 			getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
@@ -762,4 +764,4 @@ public class CreateImagePostNextStepActivity extends AppCompatActivity {
 		
 	}
 	
-}
+}

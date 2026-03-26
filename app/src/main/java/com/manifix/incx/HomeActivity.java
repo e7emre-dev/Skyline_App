@@ -467,38 +467,46 @@ class c {
 			}
 		});
 		
-		bottom_search.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View _view) {
-				intent.setClass(getApplicationContext(), SearchActivity.class);
-				startActivity(intent);
-			}
-		});
+			bottom_search.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View _view) {
+					intent.setClass(getApplicationContext(), SearchActivity.class);
+					intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+					startActivity(intent);
+					overridePendingTransition(0, 0);
+				}
+			});
 		
-		bottom_videos.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View _view) {
-				intent.setClass(getApplicationContext(), LineVideoPlayerActivity.class);
-				startActivity(intent);
-			}
-		});
+			bottom_videos.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View _view) {
+					intent.setClass(getApplicationContext(), LineVideoPlayerActivity.class);
+					intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+					startActivity(intent);
+					overridePendingTransition(0, 0);
+				}
+			});
 		
-		bottom_chats.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View _view) {
-				intent.setClass(getApplicationContext(), MessagesActivity.class);
-				startActivity(intent);
-			}
-		});
+			bottom_chats.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View _view) {
+					intent.setClass(getApplicationContext(), MessagesActivity.class);
+					intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+					startActivity(intent);
+					overridePendingTransition(0, 0);
+				}
+			});
 		
-		bottom_profile.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View _view) {
-				intent.setClass(getApplicationContext(), ProfileActivity.class);
-				intent.putExtra("uid", FirebaseAuth.getInstance().getCurrentUser().getUid());
-				startActivity(intent);
-			}
-		});
+			bottom_profile.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View _view) {
+					intent.setClass(getApplicationContext(), ProfileActivity.class);
+					intent.putExtra("uid", FirebaseAuth.getInstance().getCurrentUser().getUid());
+					intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+					startActivity(intent);
+					overridePendingTransition(0, 0);
+				}
+			});
 		
 		_udb_child_listener = new ChildEventListener() {
 			@Override
@@ -1186,9 +1194,10 @@ class c {
 			if (_data.get((int)_position).get("post_type").toString().equals("TEXT") || (_data.get((int)_position).get("post_type").toString().equals("IMAGE") || _data.get((int)_position).get("post_type").toString().equals("VIDEO"))) {
 				if (_data.get((int)_position).containsKey("post_text")) {
 					postMessageTextMiddle.setText(_data.get((int)_position).get("post_text").toString());
-						postMessageTextMiddle.setAutoLinkMask(android.text.util.Linkify.WEB_URLS);
-						postMessageTextMiddle.setLinkTextColor(Color.BLUE);
-						android.text.util.Linkify.addLinks(postMessageTextMiddle, java.util.regex.Pattern.compile("#(\\w+)"), "skyline://hashtag/");
+							postMessageTextMiddle.setAutoLinkMask(android.text.util.Linkify.WEB_URLS);
+							postMessageTextMiddle.setLinkTextColor(0xFF2196F3);
+							android.text.util.Linkify.addLinks(postMessageTextMiddle, java.util.regex.Pattern.compile("#(\\w+)"), "skyline://hashtag/");
+							postMessageTextMiddle.setMovementMethod(android.text.method.LinkMovementMethod.getInstance());
 					postMessageTextMiddle.setVisibility(View.VISIBLE);
 				} else {
 					postMessageTextMiddle.setVisibility(View.GONE);

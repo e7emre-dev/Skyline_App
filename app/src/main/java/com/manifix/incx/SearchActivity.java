@@ -121,9 +121,27 @@ public class SearchActivity extends AppCompatActivity {
 		super.onCreate(_savedInstanceState);
 		setContentView(R.layout.search);
 		initialize(_savedInstanceState);
-		FirebaseApp.initializeApp(this);
-		initializeLogic();
-	}
+			FirebaseApp.initializeApp(this);
+			initializeLogic();
+			handleIntent(getIntent());
+		}
+
+		@Override
+		protected void onNewIntent(Intent intent) {
+			super.onNewIntent(intent);
+			handleIntent(intent);
+		}
+
+		private void handleIntent(Intent intent) {
+			if (intent != null && intent.getData() != null) {
+				String data = intent.getData().toString();
+				if (data.startsWith("skyline://hashtag/")) {
+					String hashtag = data.replace("skyline://hashtag/", "");
+					topLayoutBarMiddleSearchInput.setText("#" + hashtag);
+					_getSearchedUserReference();
+				}
+			}
+		}
 	
 	private void initialize(Bundle _savedInstanceState) {
 		body = findViewById(R.id.body);
@@ -172,40 +190,47 @@ public class SearchActivity extends AppCompatActivity {
 			}
 		});
 		
-		bottom_home.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View _view) {
-				intent.setClass(getApplicationContext(), HomeActivity.class);
-				intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-				startActivity(intent);
-				finish();
-			}
-		});
+			bottom_home.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View _view) {
+					intent.setClass(getApplicationContext(), HomeActivity.class);
+					intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+					startActivity(intent);
+					overridePendingTransition(0, 0);
+					finish();
+				}
+			});
 		
-		bottom_videos.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View _view) {
-				intent.setClass(getApplicationContext(), LineVideoPlayerActivity.class);
-				startActivity(intent);
-			}
-		});
+			bottom_videos.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View _view) {
+					intent.setClass(getApplicationContext(), LineVideoPlayerActivity.class);
+					intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+					startActivity(intent);
+					overridePendingTransition(0, 0);
+				}
+			});
 		
-		bottom_chats.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View _view) {
-				intent.setClass(getApplicationContext(), MessagesActivity.class);
-				startActivity(intent);
-			}
-		});
+			bottom_chats.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View _view) {
+					intent.setClass(getApplicationContext(), MessagesActivity.class);
+					intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+					startActivity(intent);
+					overridePendingTransition(0, 0);
+				}
+			});
 		
-		bottom_profile.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View _view) {
-				intent.setClass(getApplicationContext(), ProfileActivity.class);
-				intent.putExtra("uid", FirebaseAuth.getInstance().getCurrentUser().getUid());
-				startActivity(intent);
-			}
-		});
+			bottom_profile.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View _view) {
+					intent.setClass(getApplicationContext(), ProfileActivity.class);
+					intent.putExtra("uid", FirebaseAuth.getInstance().getCurrentUser().getUid());
+					intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+					startActivity(intent);
+					overridePendingTransition(0, 0);
+				}
+			});
 		
 		_main_child_listener = new ChildEventListener() {
 			@Override
@@ -409,8 +434,9 @@ String searchText = topLayoutBarMiddleSearchInput.getText().toString().trim();
 		_ImageColor(bottom_chats_ic, 0xFFBDBDBD);
 		_ImageColor(bottom_profile_ic, 0xFFBDBDBD);
 		SearchUserLayoutRecyclerView.setAdapter(new SearchUserLayoutRecyclerViewAdapter(searchedUsersList));
-		SearchUserLayoutRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-		topLayoutBarMiddleSearchInput.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+			SearchUserLayoutRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+			_loadExploreData();
+			topLayoutBarMiddleSearchInput.setOnEditorActionListener(new TextView.OnEditorActionListener() {
 			@Override
 			public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
 				if(actionId== 3) {
@@ -459,12 +485,37 @@ String searchText = topLayoutBarMiddleSearchInput.getText().toString().trim();
 	}
 	
 	
-	public void _getSearchedUserReference() {
-		request.startRequestNetwork(RequestNetworkController.POST, "https://google.com", "google", _request_request_listener);
-		SearchUserLayout.setVisibility(View.VISIBLE);
-		topLayoutBarMiddleSearchLayoutCancel.setVisibility(View.VISIBLE);
-		SketchwareUtil.hideKeyboard(getApplicationContext());
-	}
+		public void _getSearchedUserReference() {
+			String searchText = topLayoutBarMiddleSearchInput.getText().toString().trim();
+			if (searchText.equals("")) {
+				_loadExploreData();
+				return;
+			}
+			request.startRequestNetwork(RequestNetworkController.POST, "https://google.com", "google", _request_request_listener);
+			SearchUserLayout.setVisibility(View.VISIBLE);
+			topLayoutBarMiddleSearchLayoutCancel.setVisibility(View.VISIBLE);
+			SketchwareUtil.hideKeyboard(getApplicationContext());
+		}
+
+		private void _loadExploreData() {
+			DatabaseReference exploreRef = FirebaseDatabase.getInstance().getReference("skyline/users");
+			exploreRef.limitToFirst(20).addListenerForSingleValueEvent(new ValueEventListener() {
+				@Override
+				public void onDataChange(@NonNull DataSnapshot snapshot) {
+					if (snapshot.exists()) {
+						SearchUserLayoutRecyclerView.setVisibility(View.VISIBLE);
+						SearchUserLayoutNoUserFound.setVisibility(View.GONE);
+						searchedUsersList.clear();
+						for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+							HashMap<String, Object> searchMap = new HashMap<String, Object>((Map<String, Object>) dataSnapshot.getValue());
+							searchedUsersList.add(searchMap);
+						}
+						SearchUserLayoutRecyclerView.getAdapter().notifyDataSetChanged();
+					}
+				}
+				@Override public void onCancelled(@NonNull DatabaseError error) {}
+			});
+		}
 	
 	
 	public void _setMargin(final View _view, final double _r, final double _l, final double _t, final double _b) {

@@ -41,8 +41,7 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder;
 import com.bumptech.glide.Glide;
 import com.google.firebase.FirebaseApp;
 import com.shobhitpuri.custombuttons.*;
- // import com.theartofdev.edmodo.cropper.View;
- // import com.theartofdev.edmodo.cropper.View;
+import com.theartofdev.edmodo.cropper.CropImageView;
 import com.theophrast.ui.widget.*;
 import java.io.*;
 import java.text.*;
@@ -74,7 +73,7 @@ public class CreateImagePostActivity extends AppCompatActivity {
     private TextView title;
     private View topSpc;
     private TextView continueButton;
-    private View cropImageView;
+    private CropImageView cropImageView;
     private RelativeLayout urlImagePreview;
     private ImageView urlImagePreviewImage;
     private RecyclerView imagesView;
@@ -145,7 +144,7 @@ public class CreateImagePostActivity extends AppCompatActivity {
     private void proceedWithPost() {
         if (AddFromUrlStr == null) {
             try {
-                saveBitmapAsPng(null);
+                saveBitmapAsPng();
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -158,7 +157,7 @@ public class CreateImagePostActivity extends AppCompatActivity {
         }
     }
 
-    private void saveBitmapAsPng(Bitmap bitmap) throws IOException {
+    private void saveBitmapAsPng() throws IOException {
         _LoadingDialog(true);
         Calendar cc = Calendar.getInstance();
         File getCacheDir = getExternalCacheDir();
@@ -168,7 +167,7 @@ public class CreateImagePostActivity extends AppCompatActivity {
         final String savedFilePath = getImageFile.getAbsolutePath();
         
         final FileOutputStream outStream = new FileOutputStream(getImageFile);
-        final Bitmap finalBitmap = bitmap;
+        final Bitmap finalBitmap = cropImageView.getCroppedImage();
         
         new Thread(new Runnable() {
             @Override
@@ -277,7 +276,7 @@ public class CreateImagePostActivity extends AppCompatActivity {
     public void _loadCropImage(String _path, boolean _isUrl) {
         if (!_isUrl) {
             AddFromUrlStr = null;
-             // cropImageView.setImageUriAsync(Uri.fromFile(new File(_path)));
+            cropImageView.setImageUriAsync(Uri.fromFile(new File(_path)));
             urlImagePreview.setVisibility(View.GONE);
             cropImageView.setVisibility(View.VISIBLE);
         } else {

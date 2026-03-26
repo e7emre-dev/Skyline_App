@@ -64,7 +64,7 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.shobhitpuri.custombuttons.*;
- // import com.theartofdev.edmodo.cropper.View;
+import com.theartofdev.edmodo.cropper.CropImageView;
 import com.theophrast.ui.widget.*;
 import java.io.*;
 import java.io.File;
@@ -75,7 +75,8 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.regex.*;
 import org.json.*;
-import com.google.firebase.database.Query;
+import com.google.firebase.database.Query;
+
 
 public class CompleteProfileActivity extends AppCompatActivity {
 	
@@ -1017,7 +1018,8 @@ initializeLogic();
 			NewCustomDialog.show();
 		}
 	}
-	
+	
+
 	public void _stateColor(final int _statusColor, final int _navigationColor) {
 		getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
 		getWindow().setStatusBarColor(_statusColor);
@@ -1051,4 +1053,4 @@ initializeLogic();
 		_progressbar.setProgressTintList(ColorStateList.valueOf(color));
 	}
 	
-}
+}

@@ -234,7 +234,7 @@ public class SettingsActivity extends AppCompatActivity {
 			account_stage_premium.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View _view) {
-					String shopierUrl = "https://www.shopier.com/manifix"; // Kullanıcının Shopier linki buraya gelecek
+					String shopierUrl = "https://www.shopier.com/e7emree"; // Kullanıcının Shopier linki buraya gelecek
 					Intent i = new Intent(Intent.ACTION_VIEW);
 					i.setData(Uri.parse(shopierUrl));
 					startActivity(i);

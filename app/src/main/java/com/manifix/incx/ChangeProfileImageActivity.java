@@ -61,8 +61,7 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.shobhitpuri.custombuttons.*;
- // import com.theartofdev.edmodo.cropper.View;
- // import com.theartofdev.edmodo.cropper.View;
+import com.theartofdev.edmodo.cropper.CropImageView;
 import com.theophrast.ui.widget.*;
 import java.io.*;
 import java.io.File;
@@ -80,7 +79,8 @@ import android.graphics.Bitmap.CompressFormat;
 import android.media.MediaMetadataRetriever;
 import android.database.Cursor;
 import android.provider.MediaStore;
-import com.bumptech.glide.request.RequestOptions;
+import com.bumptech.glide.request.RequestOptions;
+
 
 public class ChangeProfileImageActivity extends AppCompatActivity {
 	
@@ -90,27 +90,27 @@ public class ChangeProfileImageActivity extends AppCompatActivity {
 	private FirebaseStorage _firebase_storage = FirebaseStorage.getInstance();
 	
 	private ProgressDialog UptimeLoadingDialog;
-	private void saveBitmapAsPng(Bitmap bitmap) throws IOException {
-		_LoadingDialog(true);
-		Calendar cc = Calendar.getInstance();
-		
-		File getCacheDir = getExternalCacheDir();
-		String getCacheDirName = "cropped_images";
-		File getCacheFolder = new File(getCacheDir, getCacheDirName);
-		getCacheFolder.mkdirs();
-		File getImageFile = new File(getCacheFolder, cc.getTimeInMillis() + ".png");
-		String savedFilePath = getImageFile.getAbsolutePath();
-		
-		final FileOutputStream outStream;
-		try {
-			outStream = new FileOutputStream(getImageFile);
-			final Bitmap finalBitmap = bitmap;
+	private void saveBitmapAsPng() throws IOException {
+			_LoadingDialog(true);
+			Calendar cc = Calendar.getInstance();
 			
-			new Thread(new Runnable() {
-				@Override
-				public void run() {
-					try {
-						finalBitmap.compress(Bitmap.CompressFormat.PNG, 100, outStream);
+			File getCacheDir = getExternalCacheDir();
+			String getCacheDirName = "cropped_images";
+			File getCacheFolder = new File(getCacheDir, getCacheDirName);
+			getCacheFolder.mkdirs();
+			File getImageFile = new File(getCacheFolder, cc.getTimeInMillis() + ".png");
+			String savedFilePath = getImageFile.getAbsolutePath();
+			
+			final FileOutputStream outStream;
+			try {
+				outStream = new FileOutputStream(getImageFile);
+				final Bitmap finalBitmap = cropImageView.getCroppedImage();
+				
+				new Thread(new Runnable() {
+					@Override
+					public void run() {
+						try {
+							finalBitmap.compress(Bitmap.CompressFormat.PNG, 100, outStream);
 						outStream.flush();
 						outStream.close();
 						
@@ -153,7 +153,7 @@ public class ChangeProfileImageActivity extends AppCompatActivity {
 	
 	private LinearLayout main;
 	private LinearLayout top;
-	private View cropImageView;
+	private CropImageView cropImageView;
 	private LinearLayout body;
 	private ImageView back;
 	private TextView title;
@@ -231,16 +231,16 @@ public class ChangeProfileImageActivity extends AppCompatActivity {
 			}
 		});
 		
-		continueButton.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View _view) {
-				try {
-					saveBitmapAsPng(null);
-				} catch (IOException e) {
-					
+			continueButton.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View _view) {
+					try {
+						saveBitmapAsPng();
+					} catch (IOException e) {
+						
+					}
 				}
-			}
-		});
+			});
 		
 		selectImageWithGallery.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -515,7 +515,8 @@ public class ChangeProfileImageActivity extends AppCompatActivity {
 	public void onBackPressed() {
 		finish();
 	}
-	
+	
+
 	public void _stateColor(final int _statusColor, final int _navigationColor) {
 		getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
 		getWindow().setStatusBarColor(_statusColor);
@@ -587,7 +588,7 @@ public class ChangeProfileImageActivity extends AppCompatActivity {
 		imagesView.getAdapter().notifyDataSetChanged();
 		java.io.File file = new java.io.File(imagesListMap.get((int)0).get("path").toString());
 		Uri uri = Uri.fromFile(file);
-		 // cropImageView.setImageUriAsync(uri);
+			cropImageView.setImageUriAsync(uri);
 	}
 	
 	
@@ -661,4 +662,4 @@ public class ChangeProfileImageActivity extends AppCompatActivity {
 			}
 		}
 	}
-}
+}
