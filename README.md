@@ -1,32 +1,37 @@
 # Skyline App
 
-Skyline_Final_V2 Android uygulaması için resmi GitHub deposu.
+Skyline App, Sketchware ile geliştirilmiş ve Android Studio formatına dönüştürülmüş modern bir Android uygulamasıdır.
 
-## Özellikler
+## 🚀 APK İndir
 
-- **Gelişmiş Arayüz**: Modern ve kullanıcı dostu bir Android arayüzü.
-- **Skyline Chat**: Entegre mesajlaşma sistemi.
-- **Paylaşım Sistemi**: Resim ve video paylaşımı desteği.
-- **Profil Özelleştirme**: Kapak fotoğrafı ve profil resmi geçmişi yönetimi.
+Uygulamanın en son sürümünü doğrudan aşağıdaki butona tıklayarak indirebilirsiniz:
 
-## APK İndirme
+[![APK İndir](https://img.shields.io/badge/APK-İndir-brightgreen?style=for-the-badge&logo=android)](https://github.com/e7emre-dev/Skyline_App/releases/download/v1.0.0/app-debug.apk)
 
-Bu projenin en güncel APK dosyasını GitHub Actions sekmesinden indirebilirsiniz:
+Alternatif olarak, [Releases](https://github.com/e7emre-dev/Skyline_App/releases) sayfasından da indirebilirsiniz.
 
-1. Deponun üst kısmındaki **Actions** sekmesine gidin.
-2. En son başarılı olan "Android CI" çalışmasına tıklayın.
-3. Sayfanın altındaki **Artifacts** bölümünden `app-debug` dosyasını indirin.
+## 📱 Özellikler
 
-## Geliştirme
+- **Modern Kullanıcı Arayüzü**: Temiz ve kullanıcı dostu tasarım.
+- **Resim Paylaşımı**: Resim gönderileri oluşturma.
+- **Profil Yönetimi**: Özelleştirilebilir kullanıcı profilleri ve kapak fotoğrafları.
+- **Sosyal Etkileşim**: Takip etme, mesajlaşma ve beğeni sistemleri.
+- **Premium Özellikler**: Özel rozetler ve sınırsız paylaşım imkanı.
 
-Bu proje Gradle kullanılarak geliştirilmiştir. Android Studio ile projeyi açıp hemen geliştirmeye başlayabilirsiniz.
+## 🛠️ Teknik Detaylar
 
-### Gereksinimler
+- **Dil**: Java
+- **SDK**: minSdkVersion 23, targetSdkVersion 34
+- **Bağımlılıklar**: Firebase (Auth, Database, Storage), Glide, CircleImageView, SwipeRefreshLayout.
 
-- Android Studio Flamingo veya daha yeni bir sürüm.
-- JDK 17.
-- Android SDK 33+.
+## ⚙️ Kurulum ve Geliştirme
 
-## Lisans
+Projeyi kendi bilgisayarınızda geliştirmek için:
 
-Bu proje özel mülkiyet kapsamındadır. Tüm hakları saklıdır.
+1. Bu depoyu klonlayın: `git clone https://github.com/e7emre-dev/Skyline_App.git`
+2. **Android Studio** ile projeyi açın.
+3. Gerekli kütüphanelerin yüklenmesini bekleyin.
+4. `Run` butonuna basarak uygulamayı çalıştırın.
+
+---
+*Gaziantep'ten sevgilerle, Emre Doğan için hazırlanmıştır.*
