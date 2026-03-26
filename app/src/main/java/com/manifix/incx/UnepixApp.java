@@ -63,7 +63,7 @@ public class UnepixApp extends Application {
 		this.getCheckUserReference = FirebaseDatabase.getInstance().getReference().child("skyline/users");
 		this.setUserStatusRef = FirebaseDatabase.getInstance().getReference(".info/connected");
 		
-	\tThread.setDefaultUncaughtExceptionHandler(new CrashHandler(this));
+		Thread.setDefaultUncaughtExceptionHandler(new CrashHandler(this));;
 		
 		setUserStatus();
 		super.onCreate();
