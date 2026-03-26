@@ -270,8 +270,8 @@
 					android:layout_marginLeft="4dp"
 					android:layout_marginRight="8dp"
 					android:text="0"
-					android:textSize="18sp"
-					android:textColor="#616161" />
+					android:textSize="16sp"
+					android:textColor="#757575" />
 			</LinearLayout>
 			<LinearLayout
 				android:id="@+id/bottomSpc"

@@ -1507,6 +1507,7 @@ class c {
 				@Override
 				public void onClick(View _view) {
 					DatabaseReference getFavoriteCheck = FirebaseDatabase.getInstance().getReference("skyline/favorite-posts").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(_data.get((int)_position).get("key").toString());
+				DatabaseReference getViewsCount = FirebaseDatabase.getInstance().getReference("skyline/posts").child(_data.get((int)_position).get("key").toString()).child("views");
 					getFavoriteCheck.addListenerForSingleValueEvent(new ValueEventListener() {
 						@Override
 						public void onDataChange(@NonNull DataSnapshot dataSnapshot) { 
@@ -1928,6 +1929,7 @@ class c {
 				@Override
 				public void onClick(View _view) {
 					DatabaseReference getFavoriteCheck = FirebaseDatabase.getInstance().getReference("skyline/favorite-posts").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(_data.get((int)_position).get("key").toString());
+				DatabaseReference getViewsCount = FirebaseDatabase.getInstance().getReference("skyline/posts").child(_data.get((int)_position).get("key").toString()).child("views");
 					getFavoriteCheck.addListenerForSingleValueEvent(new ValueEventListener() {
 						@Override
 						public void onDataChange(@NonNull DataSnapshot dataSnapshot) { 
@@ -2350,6 +2352,7 @@ class c {
 				@Override
 				public void onClick(View _view) {
 					DatabaseReference getFavoriteCheck = FirebaseDatabase.getInstance().getReference("skyline/favorite-posts").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(_data.get((int)_position).get("key").toString());
+				DatabaseReference getViewsCount = FirebaseDatabase.getInstance().getReference("skyline/posts").child(_data.get((int)_position).get("key").toString()).child("views");
 					getFavoriteCheck.addListenerForSingleValueEvent(new ValueEventListener() {
 						@Override
 						public void onDataChange(@NonNull DataSnapshot dataSnapshot) { 
@@ -2772,6 +2775,7 @@ class c {
 				@Override
 				public void onClick(View _view) {
 					DatabaseReference getFavoriteCheck = FirebaseDatabase.getInstance().getReference("skyline/favorite-posts").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(_data.get((int)_position).get("key").toString());
+				DatabaseReference getViewsCount = FirebaseDatabase.getInstance().getReference("skyline/posts").child(_data.get((int)_position).get("key").toString()).child("views");
 					getFavoriteCheck.addListenerForSingleValueEvent(new ValueEventListener() {
 						@Override
 						public void onDataChange(@NonNull DataSnapshot dataSnapshot) { 
