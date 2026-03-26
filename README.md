@@ -16,4 +16,5 @@ Uygulamanın en güncel ve stabil sürümünü aşağıdaki butona tıklayarak i
 [<img src="https://img.shields.io/badge/APK-İNDİR-brightgreen?style=for-the-badge&logo=android" width="200">](https://github.com/e7emre-dev/Skyline_App/releases/download/v1.1.1/app-debug.apk)
 
 ---
-*Gaziantep'ten Emre Doğan için özel olarak hazırlanmıştır.* 🇹🇷
+*EMRE DOĞAN TARAFINDAN TASARLANDI 
+İNSTAGRAM: (https://instagram.com/e7emree)
