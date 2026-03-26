@@ -253,15 +253,16 @@
 				android:layout_height="wrap_content"
 				android:gravity="center_horizontal|center_vertical"
 				android:orientation="horizontal">
-				<ImageView
-					android:id="@+id/viewsButtonIc"
-					android:focusable="false"
-					android:layout_width="30dp"
-					android:layout_height="30dp"
-					android:layout_marginLeft="4dp"
-					android:padding="3dp"
-					android:src="@drawable/post_icons_1_2"
-					android:scaleType="centerInside" />
+					<ImageView
+						android:id="@+id/viewsButtonIc"
+						android:focusable="false"
+						android:layout_width="24dp"
+						android:layout_height="24dp"
+						android:layout_marginLeft="8dp"
+						android:padding="2dp"
+						android:src="@drawable/post_icons_views"
+						android:scaleType="centerInside"
+						android:alpha="0.7" />
 				<TextView
 					android:id="@+id/viewsButtonCount"
 					android:focusable="false"

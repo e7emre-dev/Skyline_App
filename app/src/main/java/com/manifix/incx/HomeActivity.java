@@ -1440,21 +1440,44 @@ class c {
 					
 				}
 			});
-			getFavoriteCheck.addListenerForSingleValueEvent(new ValueEventListener() {
-				@Override
-				public void onDataChange(@NonNull DataSnapshot dataSnapshot) { 
-					if(dataSnapshot.exists()) {
-						favoritePostButton.setImageResource(R.drawable.delete_favorite_post_ic);
-					} else {
-						favoritePostButton.setImageResource(R.drawable.add_favorite_post_ic);
+				getFavoriteCheck.addListenerForSingleValueEvent(new ValueEventListener() {
+					@Override
+					public void onDataChange(@NonNull DataSnapshot dataSnapshot) { 
+						if(dataSnapshot.exists()) {
+							favoritePostButton.setImageResource(R.drawable.delete_favorite_post_ic);
+						} else {
+							favoritePostButton.setImageResource(R.drawable.add_favorite_post_ic);
+						}
 					}
-				}
-				
-				@Override
-				public void onCancelled(@NonNull DatabaseError databaseError) {
 					
-				}
-			});
+					@Override
+					public void onCancelled(@NonNull DatabaseError databaseError) {
+						
+					}
+				});
+				
+				DatabaseReference getViewsCount = FirebaseDatabase.getInstance().getReference("skyline/posts").child(_data.get((int)_position).get("key").toString()).child("views");
+				getViewsCount.addListenerForSingleValueEvent(new ValueEventListener() {
+					@Override
+					public void onDataChange(DataSnapshot dataSnapshot) {
+						long views = 0;
+						if(dataSnapshot.exists()) {
+							try {
+								views = (long)dataSnapshot.getValue();
+							} catch (Exception e) {
+								views = 0;
+							}
+						}
+						_setCount(viewsButtonCount, views);
+						// Görüntülenmeyi artır
+						getViewsCount.setValue(views + 1);
+					}
+					
+					@Override
+					public void onCancelled(DatabaseError databaseError) {
+						
+					}
+				});
 			likeButton.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View _view) {
