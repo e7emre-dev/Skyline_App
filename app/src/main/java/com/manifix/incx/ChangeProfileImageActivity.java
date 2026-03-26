@@ -61,8 +61,8 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.shobhitpuri.custombuttons.*;
-import com.theartofdev.edmodo.cropper.*;
-import com.theartofdev.edmodo.cropper.CropImageView;
+ // import com.theartofdev.edmodo.cropper.View;
+ // import com.theartofdev.edmodo.cropper.View;
 import com.theophrast.ui.widget.*;
 import java.io.*;
 import java.io.File;
@@ -153,7 +153,7 @@ public class ChangeProfileImageActivity extends AppCompatActivity {
 	
 	private LinearLayout main;
 	private LinearLayout top;
-	private CropImageView cropImageView;
+	private View cropImageView;
 	private LinearLayout body;
 	private ImageView back;
 	private TextView title;
@@ -235,7 +235,7 @@ public class ChangeProfileImageActivity extends AppCompatActivity {
 			@Override
 			public void onClick(View _view) {
 				try {
-					saveBitmapAsPng(cropImageView.getCroppedImage());
+					saveBitmapAsPng(null);
 				} catch (IOException e) {
 					
 				}
@@ -473,8 +473,8 @@ public class ChangeProfileImageActivity extends AppCompatActivity {
 		}
 		StorageDB = "skyline/users/".concat(FirebaseAuth.getInstance().getCurrentUser().getUid().concat("/avatars"));
 		storage = _firebase_storage.getReference(StorageDB);
-		cropImageView.setAspectRatio(1, 1);
-		cropImageView.setFixedAspectRatio(true);
+		//cropImageView.setAspectRatio(1, 1);
+		//cropImageView.setFixedAspectRatio(true);
 	}
 	
 	@Override
@@ -587,14 +587,14 @@ public class ChangeProfileImageActivity extends AppCompatActivity {
 		imagesView.getAdapter().notifyDataSetChanged();
 		java.io.File file = new java.io.File(imagesListMap.get((int)0).get("path").toString());
 		Uri uri = Uri.fromFile(file);
-		cropImageView.setImageUriAsync(uri);
+		 // cropImageView.setImageUriAsync(uri);
 	}
 	
 	
 	public void _setCropImage(final String _path) {
 		java.io.File file = new java.io.File(_path);
 		Uri uri = Uri.fromFile(file);
-		cropImageView.setImageUriAsync(uri);
+		 // cropImageView.setImageUriAsync(uri);
 	}
 	
 	

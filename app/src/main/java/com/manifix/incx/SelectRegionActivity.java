@@ -55,7 +55,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.shobhitpuri.custombuttons.*;
-import com.theartofdev.edmodo.cropper.*;
+ // import com.theartofdev.edmodo.cropper.View;
 import com.theophrast.ui.widget.*;
 import java.io.*;
 import java.text.*;

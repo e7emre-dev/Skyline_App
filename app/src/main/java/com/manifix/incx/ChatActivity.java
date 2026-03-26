@@ -56,7 +56,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.ValueEventListener;
 import com.shobhitpuri.custombuttons.*;
-import com.theartofdev.edmodo.cropper.*;
+ // import com.theartofdev.edmodo.cropper.View;
 import com.theophrast.ui.widget.*;
 import java.io.*;
 import java.text.*;

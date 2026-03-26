@@ -35,7 +35,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import com.google.firebase.FirebaseApp;
 import com.shobhitpuri.custombuttons.*;
-import com.theartofdev.edmodo.cropper.*;
+ // import com.theartofdev.edmodo.cropper.View;
 import com.theophrast.ui.widget.*;
 import java.io.*;
 import java.text.*;

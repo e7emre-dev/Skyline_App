@@ -64,7 +64,7 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.shobhitpuri.custombuttons.*;
-import com.theartofdev.edmodo.cropper.*;
+ // import com.theartofdev.edmodo.cropper.View;
 import com.theophrast.ui.widget.*;
 import java.io.*;
 import java.io.File;

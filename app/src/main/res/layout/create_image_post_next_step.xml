@@ -200,8 +200,8 @@
 								tools:replace="android:text"
 								android:text="@string/hide_the_number_of_views"
 								android:clickable="false"
-								android:thumb="@drawable/switchIn"
-								app:track="@drawable/switchOut" />
+								android:thumb="@drawable/switchin"
+								app:track="@drawable/switchout" />
 							<TextView
 								android:id="@+id/post_settings_statistics_hide_views_subtitle"
 								android:layout_width="wrap_content"
@@ -232,8 +232,8 @@
 								tools:replace="android:text"
 								android:text="@string/hide_the_number_of_likes"
 								android:clickable="false"
-								android:thumb="@drawable/switchIn"
-								app:track="@drawable/switchOut" />
+								android:thumb="@drawable/switchin"
+								app:track="@drawable/switchout" />
 							<TextView
 								android:id="@+id/post_settings_statistics_hide_likes_subtitle"
 								android:layout_width="wrap_content"
@@ -264,8 +264,8 @@
 								tools:replace="android:text"
 								android:text="@string/hide_the_number_of_comments"
 								android:clickable="false"
-								android:thumb="@drawable/switchIn"
-								app:track="@drawable/switchOut" />
+								android:thumb="@drawable/switchin"
+								app:track="@drawable/switchout" />
 							<TextView
 								android:id="@+id/post_settings_statistics_hide_comments_subtitle"
 								android:layout_width="wrap_content"
@@ -351,8 +351,8 @@
 								tools:replace="android:text"
 								android:text="@string/hide_post_from_everyone"
 								android:clickable="false"
-								android:thumb="@drawable/switchIn"
-								app:track="@drawable/switchOut" />
+								android:thumb="@drawable/switchin"
+								app:track="@drawable/switchout" />
 							<TextView
 								android:id="@+id/post_settings_privacy_hide_post_subtitle"
 								android:layout_width="wrap_content"
@@ -383,8 +383,8 @@
 								tools:replace="android:text"
 								android:text="@string/disable_saving_to_favorites"
 								android:clickable="false"
-								android:thumb="@drawable/switchIn"
-								app:track="@drawable/switchOut" />
+								android:thumb="@drawable/switchin"
+								app:track="@drawable/switchout" />
 							<TextView
 								android:id="@+id/post_settings_privacy_disable_save_subtitle"
 								android:layout_width="wrap_content"
@@ -415,8 +415,8 @@
 								tools:replace="android:text"
 								android:text="@string/disable_comments"
 								android:clickable="false"
-								android:thumb="@drawable/switchIn"
-								app:track="@drawable/switchOut" />
+								android:thumb="@drawable/switchin"
+								app:track="@drawable/switchout" />
 							<TextView
 								android:id="@+id/post_settings_privacy_disable_comments_subtitle"
 								android:layout_width="wrap_content"

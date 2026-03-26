@@ -2,21 +2,19 @@
 
 Skyline App, Sketchware ile geliştirilmiş ve Android Studio formatına dönüştürülmüş modern bir Android uygulamasıdır.
 
-## 🚀 APK İndir
+## 🚀 APK İndir (v1.1.0 - Firebase Aktif)
 
-Uygulamanın en son sürümünü doğrudan aşağıdaki butona tıklayarak indirebilirsiniz:
+Uygulamanın en son sürümünü (Firebase ve Yeni Simge Dahil) doğrudan aşağıdaki butona tıklayarak indirebilirsiniz:
 
-[![APK İndir](https://img.shields.io/badge/APK-İndir-brightgreen?style=for-the-badge&logo=android)](https://github.com/e7emre-dev/Skyline_App/releases/download/v1.0.0/app-debug.apk)
+[![APK İndir](https://img.shields.io/badge/APK-İndir-brightgreen?style=for-the-badge&logo=android)](https://github.com/e7emre-dev/Skyline_App/releases/download/v1.1.0/app-debug.apk)
 
 Alternatif olarak, [Releases](https://github.com/e7emre-dev/Skyline_App/releases) sayfasından da indirebilirsiniz.
 
-## 📱 Özellikler
+## 📱 Yenilikler (v1.1.0)
 
-- **Modern Kullanıcı Arayüzü**: Temiz ve kullanıcı dostu tasarım.
-- **Resim Paylaşımı**: Resim gönderileri oluşturma.
-- **Profil Yönetimi**: Özelleştirilebilir kullanıcı profilleri ve kapak fotoğrafları.
-- **Sosyal Etkileşim**: Takip etme, mesajlaşma ve beğeni sistemleri.
-- **Premium Özellikler**: Özel rozetler ve sınırsız paylaşım imkanı.
+- **Firebase Entegrasyonu**: Gönderdiğiniz `google-services.json` dosyası başarıyla bağlandı. Kayıt olma ve giriş yapma sorunları giderildi.
+- **Yeni Uygulama Simgesi**: Uygulama artık mor konuşma balonu simgesiyle (Skyline kimliğiyle) görünüyor.
+- **Performans İyileştirmeleri**: Gereksiz kütüphane hataları temizlendi ve uygulama daha stabil hale getirildi.
 
 ## 🛠️ Teknik Detaylar
 

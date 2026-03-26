@@ -58,7 +58,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.ValueEventListener;
 import com.shobhitpuri.custombuttons.*;
-import com.theartofdev.edmodo.cropper.*;
+ // import com.theartofdev.edmodo.cropper.View;
 import com.theophrast.ui.widget.*;
 import java.io.*;
 import java.text.*;
@@ -131,9 +131,10 @@ public class ProfileActivity extends AppCompatActivity {
 	private ImageView ProfilePageTabUserInfoGenderBadge;
 	private CardView ProfilePageTabUserInfoRegionFlagCard;
 	private ImageView ProfilePageTabUserInfoRegionFlag;
-		private TextView ProfilePageTabUserInfoUsername;
-		private TextView ProfilePageTabUserInfoCoins;
-		private TextView ProfilePageTabUserInfoStateSpc;
+private TextView ProfilePageTabUserInfoUsername;
+			// private TextView ProfilePageTabUserInfoCoins;
+			private TextView ProfilePageTabUserInfoStateSpc;
+			private View ProfilePageTabUserInfoPremiumBadge;
 	private TextView ProfilePageTabUserInfoStatus;
 	private TextView ProfilePageTabUserInfoFollowersCount;
 	private TextView ProfilePageTabUserInfoSpc;
@@ -269,9 +270,10 @@ class c {
 		ProfilePageTabUserInfoGenderBadge = findViewById(R.id.ProfilePageTabUserInfoGenderBadge);
 		ProfilePageTabUserInfoRegionFlagCard = findViewById(R.id.ProfilePageTabUserInfoRegionFlagCard);
 		ProfilePageTabUserInfoRegionFlag = findViewById(R.id.ProfilePageTabUserInfoRegionFlag);
-			ProfilePageTabUserInfoUsername = findViewById(R.id.ProfilePageTabUserInfoUsername);
-			ProfilePageTabUserInfoCoins = findViewById(R.id.ProfilePageTabUserInfoCoins);
-			ProfilePageTabUserInfoStateSpc = findViewById(R.id.ProfilePageTabUserInfoStateSpc);
+ProfilePageTabUserInfoUsername = findViewById(R.id.ProfilePageTabUserInfoUsername);
+				// ProfilePageTabUserInfoCoins = findViewById(R.id.ProfilePageTabUserInfoCoins);
+				ProfilePageTabUserInfoStateSpc = findViewById(R.id.ProfilePageTabUserInfoStateSpc);
+				ProfilePageTabUserInfoPremiumBadge = findViewById(R.id.ProfilePageTabUserInfoBadgesScrollLayoutPremiumBadge);
 		ProfilePageTabUserInfoStatus = findViewById(R.id.ProfilePageTabUserInfoStatus);
 		ProfilePageTabUserInfoFollowersCount = findViewById(R.id.ProfilePageTabUserInfoFollowersCount);
 		ProfilePageTabUserInfoSpc = findViewById(R.id.ProfilePageTabUserInfoSpc);
@@ -724,10 +726,10 @@ class c {
 			UnepixApp.getUserCoins(new UnepixApp.CoinsCallback() {
 				@Override
 				public void onResult(int coins) {
-					if (ProfilePageTabUserInfoCoins != null) {
-						ProfilePageTabUserInfoCoins.setText("Jeton: " + coins);
-						ProfilePageTabUserInfoCoins.setVisibility(View.VISIBLE);
-					}
+// if (ProfilePageTabUserInfoCoins != null) {
+						// 	ProfilePageTabUserInfoCoins.setText("Jeton: " + coins);
+						// 	ProfilePageTabUserInfoCoins.setVisibility(View.VISIBLE);
+						// }
 				}
 			});
 		_ViewLoad();

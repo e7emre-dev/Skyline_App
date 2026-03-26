@@ -6,7 +6,7 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="colorControlHighlight">@color/colorControlHighlight</item>
         <item name="colorControlNormal">@color/colorControlNormal</item>
-        <item name="android:fontFamily">@drawable/appfont</item>
+        <item name="android:fontFamily">@font/appfont</item>
         <item name="android:forceDarkAllowed">false</item>
         <item name="android:windowAnimationStyle">@null</item>
         <item name="android:windowDisablePreview">true</item>
@@ -14,7 +14,7 @@
     <style name="AppTheme.FullScreen" parent="AppTheme">
         <item name="android:windowFullscreen">true</item>
         <item name="android:windowContentOverlay">@null</item>
-        <item name="android:fontFamily">@drawable/appfont</item>
+        <item name="android:fontFamily">@font/appfont</item>
     </style>
     <style name="PostCommentsBottomSheetDialogStyle" parent="Theme.AppCompat.Light.Dialog">
         <item name="android:windowIsFloating">false</item>
