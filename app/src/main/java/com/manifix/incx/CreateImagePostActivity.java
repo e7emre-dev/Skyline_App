@@ -41,7 +41,7 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder;
 import com.bumptech.glide.Glide;
 import com.google.firebase.FirebaseApp;
 import com.shobhitpuri.custombuttons.*;
-import com.theartofdev.edmodo.cropper.CropImageView;
+import com.canhub.cropper.CropImageView;
 import com.theophrast.ui.widget.*;
 import java.io.*;
 import java.text.*;
