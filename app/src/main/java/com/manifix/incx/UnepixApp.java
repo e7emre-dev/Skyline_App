@@ -63,17 +63,7 @@ public class UnepixApp extends Application {
 		this.getCheckUserReference = FirebaseDatabase.getInstance().getReference().child("skyline/users");
 		this.setUserStatusRef = FirebaseDatabase.getInstance().getReference(".info/connected");
 		
-		Thread.setDefaultUncaughtExceptionHandler(
-		new Thread.UncaughtExceptionHandler() {
-			@Override
-			public void uncaughtException(Thread mThread, Throwable mThrowable) {
-				Intent mIntent = new Intent(mContext, DebugActivity.class);
-				mIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-				mIntent.putExtra("error", Log.getStackTraceString(mThrowable));
-				mContext.startActivity(mIntent);
-				mExceptionHandler.uncaughtException(mThread, mThrowable);
-			}
-		});
+	\tThread.setDefaultUncaughtExceptionHandler(new CrashHandler(this));
 		
 		setUserStatus();
 		super.onCreate();

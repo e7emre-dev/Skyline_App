@@ -1184,6 +1184,9 @@ class c {
 			final TextView commentsButtonCount = _view.findViewById(R.id.commentsButtonCount);
 			final ImageView shareButtonIc = _view.findViewById(R.id.shareButtonIc);
 			final TextView shareButtonCount = _view.findViewById(R.id.shareButtonCount);
+			final LinearLayout viewsButton = _view.findViewById(R.id.viewsButton);
+			final ImageView viewsButtonIc = _view.findViewById(R.id.viewsButtonIc);
+			final TextView viewsButtonCount = _view.findViewById(R.id.viewsButtonCount);
 			
 			RecyclerView.LayoutParams _lp = new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
 			_view.setLayoutParams(_lp);
@@ -1603,6 +1606,9 @@ class c {
 			final TextView commentsButtonCount = _view.findViewById(R.id.commentsButtonCount);
 			final ImageView shareButtonIc = _view.findViewById(R.id.shareButtonIc);
 			final TextView shareButtonCount = _view.findViewById(R.id.shareButtonCount);
+			final LinearLayout viewsButton = _view.findViewById(R.id.viewsButton);
+			final ImageView viewsButtonIc = _view.findViewById(R.id.viewsButtonIc);
+			final TextView viewsButtonCount = _view.findViewById(R.id.viewsButtonCount);
 			
 			RecyclerView.LayoutParams _lp = new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
 			_view.setLayoutParams(_lp);
@@ -2021,6 +2027,9 @@ class c {
 			final TextView commentsButtonCount = _view.findViewById(R.id.commentsButtonCount);
 			final ImageView shareButtonIc = _view.findViewById(R.id.shareButtonIc);
 			final TextView shareButtonCount = _view.findViewById(R.id.shareButtonCount);
+			final LinearLayout viewsButton = _view.findViewById(R.id.viewsButton);
+			final ImageView viewsButtonIc = _view.findViewById(R.id.viewsButtonIc);
+			final TextView viewsButtonCount = _view.findViewById(R.id.viewsButtonCount);
 			
 			RecyclerView.LayoutParams _lp = new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
 			_view.setLayoutParams(_lp);
@@ -2440,6 +2449,9 @@ class c {
 			final TextView commentsButtonCount = _view.findViewById(R.id.commentsButtonCount);
 			final ImageView shareButtonIc = _view.findViewById(R.id.shareButtonIc);
 			final TextView shareButtonCount = _view.findViewById(R.id.shareButtonCount);
+			final LinearLayout viewsButton = _view.findViewById(R.id.viewsButton);
+			final ImageView viewsButtonIc = _view.findViewById(R.id.viewsButtonIc);
+			final TextView viewsButtonCount = _view.findViewById(R.id.viewsButtonCount);
 			
 			RecyclerView.LayoutParams _lp = new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
 			_view.setLayoutParams(_lp);
